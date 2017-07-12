@@ -2428,6 +2428,37 @@ public class SubsamplingScaleImageView extends View {
         invalidate();
     }
 
+    public Bitmap getClippingImage() {
+        setDrawingCacheEnabled(false);
+        setDrawingCacheEnabled(true);
+        Bitmap bitmap = getDrawingCache();
+
+        if (bitmap == null) {
+            return null;
+        }
+        int srcWidth = bitmap.getWidth();
+        int srcHeight = bitmap.getHeight();
+
+        float size = getWidth() * 0.8f;
+
+
+        float clippingWidth = srcWidth;
+        float clippingHeight = srcHeight;
+
+        if (srcWidth > size) {
+            clippingWidth = size;
+        }
+
+        if (srcHeight > size) {
+            clippingHeight = size;
+        }
+
+        float left = (srcWidth - clippingWidth) / 2;
+        float top = (srcHeight - clippingHeight) / 2;
+
+        return Bitmap.createBitmap(bitmap, (int) left, (int) top, (int) size, (int) size);
+    }
+
     /**
      * Call to find whether the view is initialised, has dimensions, and will display an image on
      * the next draw. If a preview has been provided, it may be the preview that will be displayed
