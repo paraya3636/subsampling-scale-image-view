@@ -1,16 +1,8 @@
 apply plugin: 'com.android.application'
 
-allprojects {
-    repositories {
-        maven {
-            url 'https://github.com/suckgamony/RapidDecoder/raw/master/repository'
-        }
-    }
-}
-
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     sourceSets {
         main {
@@ -43,4 +35,9 @@ dependencies {
     compile 'rapid.decoder:library:0.3.0'
     compile 'rapid.decoder:jpeg-decoder:0.3.0'
     compile 'rapid.decoder:png-decoder:0.3.0'
+}
+
+repositories {
+    maven { url 'https://github.com/suckgamony/RapidDecoder/raw/master/repository' }
+    maven { url 'https://maven.google.com' }
 }
