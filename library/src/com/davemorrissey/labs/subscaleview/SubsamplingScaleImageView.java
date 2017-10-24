@@ -2439,8 +2439,7 @@ public class SubsamplingScaleImageView extends View {
         int srcWidth = bitmap.getWidth();
         int srcHeight = bitmap.getHeight();
 
-        float size = getWidth() * 0.8f;
-
+        float size = getWidth();
 
         float clippingWidth = srcWidth;
         float clippingHeight = srcHeight;
